@@ -1,1 +1,3 @@
-geometry/*.c
+*.o
+main
+

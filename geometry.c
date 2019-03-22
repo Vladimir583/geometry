@@ -10,7 +10,7 @@
 #define CIRCLE 2
 
 
-int Parser(figure *new, char *A)
+int Parser(Figure *new, char *A)
 {
   char B[256];
   int i = 0;

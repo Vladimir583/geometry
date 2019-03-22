@@ -17,7 +17,7 @@ int main()
     int cap = 100, size = 0;
     char A[256];
     int i = 0;
-    figure* new = (figure*)malloc(sizeof(figure) * cap);
+    Figure* new = (Figure*)malloc(sizeof(Figure) * cap);
     if (new == NULL) {
         printf("Alloceted error\n");
         return 1;
@@ -32,7 +32,7 @@ int main()
             }
         } else {
             cap *= 2;
-            new = (figure*)realloc(new, cap * sizeof(double));
+            new = (Figure*)realloc(new, cap * sizeof(double));
             if (new == NULL) {
                 printf("Alloceted error\n");
                 return 1;

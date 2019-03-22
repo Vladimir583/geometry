@@ -10,7 +10,7 @@
 #define CIRCLE 2
 
 
-int Parser(Figure *new, char *A)
+int Parser(figure *new, char *A)
 {
   char B[256];
   int i = 0;
@@ -39,7 +39,7 @@ int Parser(Figure *new, char *A)
   new->coordinates = (double *)malloc(sizeof(double) * 100);
   if (new->coordinates == NULL)
   {
-    printf("Alloceted error");
+    printf("Error");
     return 1;
   }
   while (*A)

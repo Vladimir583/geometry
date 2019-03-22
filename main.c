@@ -8,33 +8,31 @@
 
 int main()
 {
-    FILE* myfile;
-    myfile = fopen("Fig.txt", "r");
-    if (myfile == NULL) {
+    FILE* f1;
+    f1 = fopen("Fig.txt", "r");
+    if (f1 == NULL) {
         printf("No file\n");
         return 1;
     }
-    printf("You input:\n");
-    int capacity = 100;
-    int size = 0;
-    char arr[256];
+    int cap = 100, size = 0;
+    char A[256];
     int i = 0;
-    Figure* new = (Figure*)malloc(sizeof(Figure) * capacity);
+    figure* new = (figure*)malloc(sizeof(figure) * cap);
     if (new == NULL) {
         printf("Alloceted error\n");
         return 1;
     }
-    while ((arr[i++] = fgetc(myfile)) != EOF) {
-        if (size < capacity) {
-            if (arr[i - 1] == '\n') {
-                arr[i - 1] = '\0';
-                Parser(&new[size], arr);
+    while ((A[i++] = fgetc(f1)) != EOF) {
+        if (size < cap) {
+            if (A[i - 1] == '\n') {
+                A[i - 1] = '\0';
+                Parser(&new[size], A);
                 size++;
                 i = 0;
             }
         } else {
-            capacity *= 2;
-            new = (Figure*)realloc(new, capacity * sizeof(double));
+            cap *= 2;
+            new = (figure*)realloc(new, cap * sizeof(double));
             if (new == NULL) {
                 printf("Alloceted error\n");
                 return 1;
@@ -44,9 +42,9 @@ int main()
     int j;
     for (i = 0; i < size; i++) {
         if (new[i].type == CIRCLE) {
-            printf("Figure circle\n");
+            printf("Circle:\n");
         } else if (new[i].type == TRIANGLE) {
-            printf("Figure triangle\n");
+            printf("Triangle:\n");
         }
         j = 0;
 	printf("Coordinats: ");
